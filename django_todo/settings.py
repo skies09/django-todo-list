@@ -26,10 +26,11 @@ SECRET_KEY = '55!-bn7!4gy0x&k*a4le$+@$fq=ormq2mk+1v_17z(unop2x=!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), 
-                os.environ.get('HOSTNAME')]
+ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME'), os.environ.get('HOSTNAME')]
 
-
+host = os.environ.get('SITE_HOST')
+if host:
+    ALLOWED_HOSTS.append(host)
 # Application definition
 
 INSTALLED_APPS = [
